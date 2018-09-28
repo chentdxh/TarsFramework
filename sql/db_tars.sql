@@ -153,6 +153,42 @@ LOCK TABLES `t_config_files` WRITE;
 UNLOCK TABLES;
 
 --
+-- Table structure for table `t_server_notifys`
+--
+
+DROP TABLE IF EXISTS `t_server_notifys`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `t_server_notifys` ( 
+  `id` INT(11) NOT NULL AUTO_INCREMENT, 
+  `application` VARCHAR(128) DEFAULT '', 
+  `server_name` VARCHAR(128) DEFAULT NULL, 
+  `container_name` VARCHAR(128) DEFAULT '' , 
+  `node_name` VARCHAR(128) NOT NULL DEFAULT '', 
+  `set_name` VARCHAR(16) DEFAULT NULL, 
+  `set_area` VARCHAR(16) DEFAULT NULL, 
+  `set_group` VARCHAR(16) DEFAULT NULL, 
+  `server_id` VARCHAR(100) DEFAULT NULL, 
+  `thread_id` VARCHAR(20) DEFAULT NULL, 
+  `command` VARCHAR(50) DEFAULT NULL, 
+  `result` TEXT, `notifytime` DATETIME DEFAULT NULL, 
+  PRIMARY KEY (`id`), KEY `index_name` (`server_name`),
+  KEY `servernoticetime_i_1` (`notifytime`), 
+  KEY `indx_1_server_id` (`server_id`), 
+  KEY `query_index` (`application`,`server_name`,`node_name`,`set_name`,`set_area`,`set_group`) 
+) ENGINE=INNODB DEFAULT CHARSET=utf8; 
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `t_server_notifys`
+--
+
+LOCK TABLES `t_server_notifys` WRITE;
+/*!40000 ALTER TABLE `t_server_notifys` DISABLE KEYS */;
+/*!40000 ALTER TABLE `t_server_notifys` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `t_config_history_files`
 --
 
